@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: extensions/v1
 kind: Ingress
 metadata:
   name: api
@@ -27,7 +27,7 @@ metadata:
 ---
 
 kind: Role
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: db
   namespace: go-demo-3
@@ -38,7 +38,7 @@ rules:
 
 ---
 
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: db
@@ -144,7 +144,7 @@ spec:
     spec:
       containers:
       - name: api
-        image: vfarcic/go-demo-3:latest
+        image: ekudishin/go-demo-3:latest
         env:
         - name: DB
           value: db
