@@ -1,8 +1,8 @@
 FROM golang:1.12 AS build
 ADD . /src
 WORKDIR /src
-RUN go get -d -v -t
 RUN apt update && apt install ca-certificates libgnutls30 -y
+RUN go get -d -v -t
 RUN go test --cover -v ./... --run UnitTest
 RUN go build -v -o go-demo
 
